@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bridgerton Night SSU x BCU</title>
+    <!-- Google Fonts: Playfair Display for English elegance, Prompt for Thai sans-serif -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons (No Emojis) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-dark: #0f2b4a;      /* Bridgerton Blue */
+            --primary-light: #5a7d9a;     /* Soft Blue */
+            --accent-gold: #d4af37;       /* Elegant Gold */
+            --accent-red: #8b0000;        /* Sipsilp Red */
+            --bg-cream: #fdfbf7;          /* Parchment/Cream */
+            --text-main: #333333;
+            --text-muted: #666666;
+            --shadow-soft: 0 15px 35px rgba(15, 43, 74, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Prompt', sans-serif;
+            background-color: var(--bg-cream);
+            color: var(--text-main);
+            line-height: 1.8;
+            overflow-x: hidden;
+            font-weight: 300;
+        }
+
+        h1, h2, h3, h4, .en-title {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-dark);
+        }
+
+        h1, h2, h3 {
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .thai-title {
+            font-family: 'Prompt', sans-serif;
+            font-weight: 500;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--accent-gold);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(15, 43, 74, 0.7), rgba(15, 43, 74, 0.7)), url('https://images.unsplash.com/photo-1543158266-0066955047b1?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+            color: var(--bg-cream);
+            padding: 2rem;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            color: var(--accent-gold);
+            font-size: clamp(3rem, 6vw, 5rem);
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hashtag {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.2);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            backdrop-filter: blur(5px);
+            color: var(--accent-gold);
+        }
+
+        /* --- Container & Layout --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header i {
+            color: var(--accent-gold);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 1rem auto 0;
+        }
+
+        /* --- Grid Layouts --- */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        /* --- Cards & Content Blocks (Borderless) --- */
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 3rem 2.5rem;
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(15, 43, 74, 0.12);
+        }
+
+        .card i {
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* --- Specific Sections --- */
+        .image-showcase {
+            width: 100%;
+            height: 400px;
+            border-radius: 20px;
+            object-fit: cover;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .info-list {
+            list-style: none;
+        }
+
+        .info-list li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-list i {
+            color: var(--accent-gold);
+            font-size: 1.2rem;
+            margin-top: 5px;
+            margin-right: 1.2rem;
+            width: 24px;
+            text-align: center;
+        }
+
+        .info-content h4 {
+            font-family: 'Prompt', sans-serif;
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            color: var(--primary-dark);
+        }
+
+        /* --- Timeline --- */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background: rgba(212, 175, 55, 0.3);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+
+        .timeline-item {
+            padding: 2rem 0;
+            position: relative;
+            width: 50%;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            padding-right: 3rem;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            padding-left: 3rem;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--accent-gold);
+            border-radius: 50%;
+            top: 2.5rem;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-dot { right: -10px; }
+        .timeline-item:nth-child(even) .timeline-dot { left: -10px; }
+
+        .timeline-content {
+            background: #ffffff;
+            padding: 1.5rem 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .timeline-time {
+            color: var(--accent-gold);
+            font-weight: 600;
+            font-size: 1.2rem;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 0.5rem;
+        }
+
+        /* --- Menu Section --- */
+        .menu-wrapper {
+            background: linear-gradient(to bottom, #ffffff, var(--bg-cream));
+            border-radius: 30px;
+            padding: 4rem;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .menu-category {
+            margin-bottom: 3rem;
+        }
+
+        .menu-category:last-child {
+            margin-bottom: 0;
+        }
+
+        .menu-title {
+            text-align: center;
+            font-size: 1.8rem;
+            color: var(--primary-light);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .menu-item {
+            text-align: center;
+        }
+
+        .menu-item h4 {
+            font-family: 'Prompt', sans-serif;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .menu-item p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: var(--primary-dark);
+            color: var(--bg-cream);
+            text-align: center;
+            padding: 4rem 2rem;
+            position: relative;
+        }
+
+        footer h2 {
+            color: var(--accent-gold);
+        }
+
+        footer .fireworks-note {
+            font-size: 1.1rem;
+            margin-top: 1.5rem;
+            font-weight: 300;
+            opacity: 0.8;
+        }
+
+        /* --- Music Player (Hidden UI, autoplay context) --- */
+        .audio-player {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #ffffff;
+            padding: 10px 15px;
+            border-radius: 30px;
+            box-shadow: var(--shadow-soft);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 1000;
+        }
+        
+        .audio-player i {
+            color: var(--accent-gold);
+        }
+
+        .audio-player p {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--primary-dark);
+        }
+
+        audio {
+            display: none;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 992px) {
+            .grid-2 { grid-template-columns: 1fr; }
+            .timeline::before { left: 40px; }
+            .timeline-item { width: 100%; padding-left: 80px; padding-right: 0; text-align: left; }
+            .timeline-item:nth-child(odd) { left: 0; text-align: left; }
+            .timeline-item:nth-child(even) { left: 0; }
+            .timeline-dot { left: 30px !important; right: auto !important; }
+            .menu-wrapper { padding: 2rem; }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .container { padding: 3rem 1.5rem; }
+            .card { padding: 2rem 1.5rem; }
+            .section-header h2 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Audio Player: Autoplay enabled. Some browsers require interaction first, hence the UI indicator -->
+    <div class="audio-player">
+        <i class="fa-solid fa-music fa-spin-pulse"></i>
+        <p>Playing: Bridgerton Symphony</p>
+        <audio autoplay loop controls>
+            <!-- Replace with actual music URL -->
+            <source src="https://cdn.pixabay.com/download/audio/2022/01/18/audio_d0a13f69d2.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Bridgerton Night</h1>
+            <p class="thai-title">ค่ำคืนแห่งมนตร์สะกด ท่ามกลางแสงดาวและเสียงเพลงวอลซ์</p>
+            <div class="hashtag">#BridgertonNightSSUxBCU</div>
+        </div>
+    </header>
+
+    <!-- Welcome & Core Details -->
+    <section class="container">
+        <div class="section-header">
+            <i class="fa-solid fa-feather-pointed"></i>
+            <h2>Dearest Readers...</h2>
+            <p>จดหมายเชิญฉบับพิเศษนี้ ส่งตรงถึงเหล่าสุภาพบุรุษและสุภาพสตรีแห่งสังคมชั้นสูง ขอต้อนรับทุกท่านเข้าสู่งานเต้นรำที่ยิ่งใหญ่ที่สุดแห่งฤดูกาล</p>
+        </div>
+
+        <div class="grid-2">
+            <div>
+                <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2070&auto=format&fit=crop" alt="Bridgerton Ball" class="image-showcase">
+            </div>
+            <div>
+                <ul class="info-list">
+                    <li>
+                        <i class="fa-regular fa-calendar"></i>
+                        <div class="info-content">
+                            <h4>วันแห่งการเฉลิมฉลอง</h4>
+                            <p>วันเสาร์ที่ 30 พฤษภาคม 2569</p>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fa-regular fa-clock"></i>
+                        <div class="info-content">
+                            <h4>ห้วงเวลาแห่งความทรงจำ</h4>
+                            <p>19:00 น. ถึง 00:00 น.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-location-dot"></i>
+                        <div class="info-content">
+                            <h4>สถานที่จัดงาน</h4>
+                            <p>อาคารโดมแก้วพิเศษ มหาวิทยาลัยเบงจันทร์ (ตั้งอยู่บริเวณใกล้อาคารเรียนรวม)</p>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-user-group"></i>
+                        <div class="info-content">
+                            <h4>แขกผู้มีเกียรติที่สามารถเข้าร่วมได้</h4>
+                            <p>นักศึกษามหาวิทยาลัยเบงจันทร์, นักศึกษามหาวิทยาลัยสิบศิลป์สิริศาสตร์, คณาจารย์ทุกท่าน และ NPC ประจำงาน</p>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-shirt"></i>
+                        <div class="info-content">
+                            <h4>การแต่งกาย (Dress Code)</h4>
+                            <p>ธีมชุดรีเจนซี่ (Regency Era Theme) - สุภาพสตรีในชุดเดรสยาวเอวสูง สุภาพบุรุษในชุดสูทหางยาวหรือเสื้อคลุมคอสูง หรูหราและงดงามตามแบบฉบับราชสำนักอังกฤษ</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transportation & Scenery -->
+    <section class="container" style="background-color: #ffffff; border-radius: 30px; padding: 4rem; box-shadow: var(--shadow-soft);">
+        <div class="section-header">
+            <i class="fa-solid fa-horse-head"></i>
+            <h2>The Grand Arrival</h2>
+            <p>ประสบการณ์การเดินทางที่ถูกเนรมิตให้สมบูรณ์แบบตั้งแต่จุดเริ่มต้น</p>
+        </div>
+
+        <div class="grid-3">
+            <div class="card">
+                <i class="fa-solid fa-map-location-dot"></i>
+                <h3>จุดรับรองหน้ามหาวิทยาลัย</h3>
+                <p>รถม้าสุดคลาสสิกจอดเรียงรายต้อนรับแขกผู้มีเกียรติ ณ บริเวณประตูใหญ่ของมหาวิทยาลัยเบงจันทร์ พร้อมผู้คุ้มกันในชุดเครื่องแบบเต็มยศที่คอยอำนวยความสะดวกในการขึ้นรถม้า</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-chess-knight" style="color: var(--primary-light);"></i>
+                <h3>รถม้าสีน้ำเงิน (ฝั่งเบงจันทร์)</h3>
+                <p>รถม้าบุกำมะหยี่สีน้ำเงินเข้มประดับตราสัญลักษณ์สีเงิน จัดเตรียมไว้เป็นพิเศษสำหรับนักศึกษาและบุคลากรจากมหาวิทยาลัยเบงจันทร์ มอบความรู้สึกสุขุมและสง่างาม</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-chess-knight" style="color: var(--accent-red);"></i>
+                <h3>รถม้าสีแดง (ฝั่งสิบศิลป์ฯ)</h3>
+                <p>รถม้าไม้แกะสลักตกแต่งด้วยผ้าไหมสีแดงเบอร์กันดีประดับลวดลายสีทอง สงวนไว้สำหรับผู้มาเยือนจากมหาวิทยาลัยสิบศิลป์สิริศาสตร์ สะท้อนความหรูหราและเปี่ยมด้วยพลัง</p>
+            </div>
+        </div>
+
+        <div style="margin-top: 3rem; text-align: center;">
+            <h4 style="font-size: 1.3rem; margin-bottom: 1rem;">ทัศนียภาพตลอดเส้นทาง</h4>
+            <p style="color: var(--text-muted); max-width: 800px; margin: 0 auto;">ระหว่างทางที่รถม้าเคลื่อนผ่านถนนปูด้วยหินก้อนใหญ่ (Cobblestone) ท่านจะได้สัมผัสกับแสงสว่างไสวจากตะเกียงก๊าซโบราณที่ส่องแสงเรืองรองตลอดสองข้างทาง สวนพฤกษชาติถูกตกแต่งด้วยพุ่มกุหลาบขาวและน้ำพุหินอ่อน เสียงดนตรีคลาสสิกจากวงเครื่องสาย (String Quartet) แว่วมาตามสายลม คลอเคล้ากับแสงระยิบระยับของหิ่งห้อยที่ถูกจำลองขึ้นอย่างแนบเนียน สร้างบรรยากาศราวกับหลุดเข้าไปในนวนิยายรักโรแมนติก</p>
+        </div>
+    </section>
+
+    <!-- Venue Details (Glass Dome) -->
+    <section class="container">
+        <div class="section-header">
+            <i class="fa-regular fa-gem"></i>
+            <h2>The Crystal Dome</h2>
+            <p>ความวิจิตรตระการตาของสถาปัตยกรรมแห่งค่ำคืน</p>
+        </div>
+        
+        <div class="grid-2">
+            <div>
+                <h3 style="font-family: 'Prompt', sans-serif; margin-bottom: 1rem;">อาคารโดมแก้วพิเศษ</h3>
+                <p style="margin-bottom: 1rem;">ณ ศูนย์กลางของงาน โดมกระจกใสทรงสูงตระหง่านสะท้อนแสงจันทร์ โครงสร้างเหล็กดัดลวดลายวิจิตรถูกพันเกี่ยวด้วยเถาวัลย์ดอกวิสทีเรียสีม่วงอ่อนและกุหลาบขาวบริสุทธิ์ที่ส่งกลิ่นหอมละมุนไปทั่วบริเวณ</p>
+                <p style="margin-bottom: 1rem;">เพดานกระจกเปิดโอกาสให้แขกทุกท่านได้เต้นรำภายใต้แสงดาวนับล้านดวง ใจกลางโดมประดับด้วยแชนเดอเลียร์คริสตัลขนาดยักษ์ที่ส่องแสงสีทองอบอุ่นจากเทียนนับพันเล่ม พื้นฟลอร์เต้นรำทำจากหินอ่อนขัดเงา สะท้อนเงาของเหล่าสุภาพบุรุษและสุภาพสตรีที่กำลังก้าวเท้าไปตามจังหวะดนตรี มุมพักผ่อนจัดเตรียมโซฟาบุผ้าไหมทอทองคำ พร้อมฉากกั้นตกแต่งด้วยผ้าโปร่งบางเบาเพื่อความเป็นส่วนตัว</p>
+            </div>
+            <div>
+                <img src="https://images.unsplash.com/photo-1542385151-efd9000785a0?q=80&w=1968&auto=format&fit=crop" alt="Glass Dome Interior" class="image-showcase">
+            </div>
+        </div>
+    </section>
+
+    <!-- Music & Menus -->
+    <section class="container">
+        <div class="grid-2">
+            <!-- Music -->
+            <div class="card" style="background: var(--primary-dark); color: var(--bg-cream);">
+                <i class="fa-solid fa-compact-disc" style="color: var(--bg-cream);"></i>
+                <h3 style="color: var(--accent-gold);">The Symphony of the Night</h3>
+                <p style="opacity: 0.9; margin-bottom: 1.5rem; text-align: left;">บทเพลงที่ถูกบรรเลงในงานเต้นรำครั้งนี้ ได้รับการคัดสรรอย่างพิถีพิถัน บรรเลงสดโดยวงออเคสตราเต็มวง</p>
+                <ul class="info-list" style="text-align: left;">
+                    <li>
+                        <i class="fa-solid fa-play" style="color: var(--accent-gold);"></i>
+                        <div class="info-content">
+                            <h4 style="color: #ffffff;">Classical Pop Covers</h4>
+                            <p style="color: #cccccc; font-size: 0.9rem;">เพลงป็อปยุคใหม่ที่ถูกนำมาเรียบเรียงใหม่ในรูปแบบเครื่องสายสุดคลาสสิก (Signature ของ Bridgerton)</p>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-play" style="color: var(--accent-gold);"></i>
+                        <div class="info-content">
+                            <h4 style="color: #ffffff;">The Traditional Waltz</h4>
+                            <p style="color: #cccccc; font-size: 0.9rem;">บทเพลงวอลซ์จังหวะมาตรฐาน สำหรับการเปิดฟลอร์เต้นรำอย่างเป็นทางการ</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Menu -->
+            <div class="menu-wrapper">
+                <div class="section-header" style="margin-bottom: 2rem;">
+                    <h2 style="font-size: 2rem; margin-bottom: 0;">Feast & Refreshments</h2>
+                </div>
+                
+                <div class="menu-category">
+                    <div class="menu-grid" style="grid-template-columns: 1fr;">
+                        <div class="menu-item" style="text-align: left; border-bottom: 1px dashed #ccc; padding-bottom: 1rem;">
+                            <h4><i class="fa-solid fa-champagne-glasses" style="color: var(--accent-gold); margin-right: 10px;"></i> เครื่องดื่ม (Beverages)</h4>
+                            <p>Sparkling Mocktail รสผลไม้ตระกูลเบอร์รี, แชมเปญไร้แอลกอฮอล์, ชาเอิร์ลเกรย์สกัดเย็น และชาดอกไม้ร้อนสูตรพิเศษ</p>
+                        </div>
+                        <div class="menu-item" style="text-align: left; border-bottom: 1px dashed #ccc; padding-bottom: 1rem;">
+                            <h4><i class="fa-solid fa-cookie" style="color: var(--accent-gold); margin-right: 10px;"></i> ของหวาน (Desserts)</h4>
+                            <p>มาการองหลากสีสัน, ทาร์ตผลไม้สดทรงเครื่อง, เค้กเรดเวลเวทเนื้อนุ่ม, และสโคนต้นตำรับเสิร์ฟพร้อมคล็อตเต็ดครีม</p>
+                        </div>
+                        <div class="menu-item" style="text-align: left;">
+                            <h4><i class="fa-solid fa-utensils" style="color: var(--accent-gold); margin-right: 10px;"></i> ของว่าง (Canapés & Savory)</h4>
+                            <p>แซนด์วิชแตงกวาขนาดพอดีคำ, คานาเป้แซลมอนรมควัน, พัฟเห็ดทรัฟเฟิล และเนื้อย่างหั่นเต๋าเสียบไม้</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule / Timeline -->
+    <section class="container">
+        <div class="section-header">
+            <i class="fa-solid fa-hourglass-half"></i>
+            <h2>Order of the Evening</h2>
+            <p>กำหนดการแห่งค่ำคืนที่ท่านจะไม่มีวันลืม</p>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-time">19:00 น.</div>
+                    <h4 style="margin-bottom: 0.5rem; color: var(--primary-dark);">The Arrival</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">รถม้าเที่ยวแรกเทียบท่า ณ โดมแก้ว แขกผู้มีเกียรติเริ่มเดินเข้าสู่พรมแดง ลงทะเบียนและรับบัตรเต้นรำ (Dance Card)</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-time">19:30 น.</div>
+                    <h4 style="margin-bottom: 0.5rem; color: var(--primary-dark);">The First Dance</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">พิธีเปิดงานอย่างเป็นทางการ และการเต้นรำเปิดฟลอร์ด้วยจังหวะวอลซ์ที่พร้อมเพรียงและงดงาม</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-time">20:30 น.</div>
+                    <h4 style="margin-bottom: 0.5rem; color: var(--primary-dark);">Socializing & Banquet</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">ช่วงเวลาแห่งการพบปะสังสรรค์ แลกเปลี่ยนบทสนทนา และลิ้มรสอาหารค่ำและเครื่องดื่มสุดพิเศษที่จัดเตรียมไว้</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-time">22:00 น.</div>
+                    <h4 style="margin-bottom: 0.5rem; color: var(--primary-dark);">Diamond of the Season</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">ช่วงเวลาสำคัญ การแสดงสุดพิเศษ และการประกาศรางวัลผู้แต่งกายยอดเยี่ยม (Diamond of the Season) ของค่ำคืนนี้</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-time">22:30 น.</div>
+                    <h4 style="margin-bottom: 0.5rem; color: var(--primary-dark);">Free Dance & Promenading</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">เปิดฟลอร์อิสระในจังหวะดนตรีเครื่องสายที่สนุกสนานยิ่งขึ้น และการเดินชมสวนเรืองแสงด้านนอกโดม</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-time">00:00 น.</div>
+                    <h4 style="margin-bottom: 0.5rem; color: var(--primary-dark);">The Silent Finale</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">สิ้นสุดงานเต้นรำด้วยไฮไลท์สำคัญ "การจุดพลุไร้เสียง" สว่างไสวเต็มท้องฟ้าเหนือโดมแก้ว เป็นการบอกลากันอย่างงดงามโดยปราศจากมลภาวะทางเสียง</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 1rem;">#BridgertonNightSSUxBCU</h2>
+        <p style="font-family: 'Prompt', sans-serif; font-size: 1rem; color: #cccccc;">งานเต้นรำสานสัมพันธ์ มหาวิทยาลัยเบงจันทร์ และ มหาวิทยาลัยสิบศิลป์สิริศาสตร์</p>
+        
+        <div class="fireworks-note">
+            <i class="fa-solid fa-wand-magic-sparkles" style="color: var(--accent-gold); margin-right: 10px;"></i>
+            เมื่อเข็มนาฬิกาบอกเวลาเที่ยงคืน ท้องฟ้าจะถูกแต่งแต้มด้วยพลุไร้เสียงอันตระการตา
+        </div>
+    </footer>
+
+</body>
+</html>
